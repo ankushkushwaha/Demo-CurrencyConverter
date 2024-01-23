@@ -14,7 +14,7 @@ class ConverterViewModel: ObservableObject {
     @Published var error: DataError?
     @Published var isLoading = true
     @Published var amount = "1.00"
-    @Published var selectedBaseCurrency:CurrencyRateModel? {
+    @Published var selectedBaseCurrency: CurrencyRateModel? {
         didSet {
             calculateConversionRates()
         }
@@ -65,7 +65,7 @@ class ConverterViewModel: ObservableObject {
     
     private func setupData(_ data: ExchangeRateResponse) {
         
-        originalCurrencyModels = data.rates .map { key, value in
+        originalCurrencyModels = data.rates.map { key, value in
             return CurrencyRateModel(currencySymbol: key, rate: value, convertedRate: nil)
         }
         .sorted{$0.currencySymbol < $1.currencySymbol}
