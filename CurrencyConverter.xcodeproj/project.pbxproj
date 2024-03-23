@@ -10,7 +10,7 @@
 		467EA7FE2B20C12E006A0CDE /* DataValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467EA7FD2B20C12E006A0CDE /* DataValidatorTests.swift */; };
 		467EA8002B20C330006A0CDE /* DataStoreServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467EA7FF2B20C330006A0CDE /* DataStoreServiceTests.swift */; };
 		467EA8022B21BEE4006A0CDE /* ConverterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467EA8012B21BEE3006A0CDE /* ConverterViewModelTests.swift */; };
-		467EA8062B21CFE9006A0CDE /* EndpointConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467EA8052B21CFE8006A0CDE /* EndpointConfigTests.swift */; };
+		467EA8062B21CFE9006A0CDE /* EndpointsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467EA8052B21CFE8006A0CDE /* EndpointsTests.swift */; };
 		467EA80A2B21D3F4006A0CDE /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467EA8092B21D3F4006A0CDE /* DataProviderTests.swift */; };
 		467EA80C2B22E9F0006A0CDE /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467EA80B2B22E9F0006A0CDE /* ErrorView.swift */; };
 		4682DF472B2346910075D2C7 /* DecimalExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4682DF462B2346910075D2C7 /* DecimalExtensionTests.swift */; };
@@ -19,7 +19,7 @@
 		46AC02C82B1E00B700417AD4 /* CurrencyRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC02C72B1E00B700417AD4 /* CurrencyRateView.swift */; };
 		46AC02CA2B1E00BB00417AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46AC02C92B1E00BB00417AD4 /* Assets.xcassets */; };
 		46AC02CD2B1E00BB00417AD4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46AC02CC2B1E00BB00417AD4 /* Preview Assets.xcassets */; };
-		46AC02F42B1E085900417AD4 /* EndpointConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC02F32B1E085900417AD4 /* EndpointConfig.swift */; };
+		46AC02F42B1E085900417AD4 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC02F32B1E085900417AD4 /* Endpoints.swift */; };
 		46AC02F62B1E094700417AD4 /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC02F52B1E094700417AD4 /* ConverterViewModel.swift */; };
 		46AC02F82B1E09AA00417AD4 /* ExchangeNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC02F72B1E09AA00417AD4 /* ExchangeNetworkService.swift */; };
 		46AC02FB2B1E0B5E00417AD4 /* ExchangeRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC02F92B1E0B5E00417AD4 /* ExchangeRateResponse.swift */; };
@@ -49,7 +49,7 @@
 		467EA7FD2B20C12E006A0CDE /* DataValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValidatorTests.swift; sourceTree = "<group>"; };
 		467EA7FF2B20C330006A0CDE /* DataStoreServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreServiceTests.swift; sourceTree = "<group>"; };
 		467EA8012B21BEE3006A0CDE /* ConverterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModelTests.swift; sourceTree = "<group>"; };
-		467EA8052B21CFE8006A0CDE /* EndpointConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointConfigTests.swift; sourceTree = "<group>"; };
+		467EA8052B21CFE8006A0CDE /* EndpointsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointsTests.swift; sourceTree = "<group>"; };
 		467EA8092B21D3F4006A0CDE /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
 		467EA80B2B22E9F0006A0CDE /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		4682DF462B2346910075D2C7 /* DecimalExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalExtensionTests.swift; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		46AC02C92B1E00BB00417AD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46AC02CC2B1E00BB00417AD4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		46AC02D22B1E00BC00417AD4 /* CurrencyConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		46AC02F32B1E085900417AD4 /* EndpointConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointConfig.swift; sourceTree = "<group>"; };
+		46AC02F32B1E085900417AD4 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		46AC02F52B1E094700417AD4 /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
 		46AC02F72B1E09AA00417AD4 /* ExchangeNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeNetworkService.swift; sourceTree = "<group>"; };
 		46AC02F92B1E0B5E00417AD4 /* ExchangeRateResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRateResponse.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 				467EA7FD2B20C12E006A0CDE /* DataValidatorTests.swift */,
 				467EA7FF2B20C330006A0CDE /* DataStoreServiceTests.swift */,
 				467EA8012B21BEE3006A0CDE /* ConverterViewModelTests.swift */,
-				467EA8052B21CFE8006A0CDE /* EndpointConfigTests.swift */,
+				467EA8052B21CFE8006A0CDE /* EndpointsTests.swift */,
 				467EA8092B21D3F4006A0CDE /* DataProviderTests.swift */,
 				4682DF462B2346910075D2C7 /* DecimalExtensionTests.swift */,
 				4682DF482B23471F0075D2C7 /* StringExtensionTests.swift */,
@@ -191,7 +191,7 @@
 		46ADB15D2B2094E0008C2EA5 /* DataProviders */ = {
 			isa = PBXGroup;
 			children = (
-				46AC02F32B1E085900417AD4 /* EndpointConfig.swift */,
+				46AC02F32B1E085900417AD4 /* Endpoints.swift */,
 				46ADB1562B20423C008C2EA5 /* DataProvider.swift */,
 				46ADB1522B200B19008C2EA5 /* DataValidator.swift */,
 				46AC02F72B1E09AA00417AD4 /* ExchangeNetworkService.swift */,
@@ -310,7 +310,7 @@
 				46ADB1482B1EE3C3008C2EA5 /* MockExchangeService.swift in Sources */,
 				46AC03022B1E193A00417AD4 /* URLSession+Extension.swift in Sources */,
 				46ADB14C2B1F24E2008C2EA5 /* Decimal+Extension.swift in Sources */,
-				46AC02F42B1E085900417AD4 /* EndpointConfig.swift in Sources */,
+				46AC02F42B1E085900417AD4 /* Endpoints.swift in Sources */,
 				46AC02C62B1E00B700417AD4 /* CurrencyConverterApp.swift in Sources */,
 				46ADB1572B20423C008C2EA5 /* DataProvider.swift in Sources */,
 				46AC02FB2B1E0B5E00417AD4 /* ExchangeRateResponse.swift in Sources */,
@@ -330,7 +330,7 @@
 				4682DF472B2346910075D2C7 /* DecimalExtensionTests.swift in Sources */,
 				4682DF492B23471F0075D2C7 /* StringExtensionTests.swift in Sources */,
 				467EA8002B20C330006A0CDE /* DataStoreServiceTests.swift in Sources */,
-				467EA8062B21CFE9006A0CDE /* EndpointConfigTests.swift in Sources */,
+				467EA8062B21CFE9006A0CDE /* EndpointsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

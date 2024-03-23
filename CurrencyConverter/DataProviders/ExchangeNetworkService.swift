@@ -15,7 +15,7 @@ class ExchangeRateService: ExchangeServiceProtocol {
     
     func fetchExchangeRates(_for currencySymbol: String) async -> Result<ExchangeRateResponse, Error> {
         
-        let url = "\(EndpointConfig().latestExchangeRatesUrl)&base=\(currencySymbol)"
+        let url = "\(Endpoints.exchangeRates)&base=\(currencySymbol)"
         
         return await URLSession.shared.fetchData(url: url)
     }
