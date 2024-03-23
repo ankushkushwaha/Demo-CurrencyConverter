@@ -42,7 +42,7 @@ class ConverterViewModelTests: XCTestCase {
         let sut = ConverterViewModel(dataProvider: dataProvider)
         
         XCTAssertTrue(sut.isLoading, "isLoading should be true")
-
+        
         await sut.fetchAndShowCurrencies()
         
         XCTAssertFalse(sut.isLoading, "isLoading should be false")

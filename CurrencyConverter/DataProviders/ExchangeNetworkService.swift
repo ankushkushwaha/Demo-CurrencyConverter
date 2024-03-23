@@ -22,8 +22,6 @@ struct ExchangeRateService: ExchangeServiceProtocol {
     
     func fetchExchangeRates(_for currencySymbol: String) async -> Result<ExchangeRateResponse, Error> {
         
-        
-        
         guard let url = URL(string: "\(Endpoints.exchangeRates)&base=\(currencySymbol)") else {
             return .failure(NetworkingError.invalidURL)
         }
