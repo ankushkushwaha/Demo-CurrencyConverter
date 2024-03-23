@@ -9,9 +9,7 @@ import Foundation
 
 extension Decimal {
     var prettyStringValue: String? {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.minimumFractionDigits = 1
+        let numberFormatter = Self.numberFormatter
         
         if self < 0.0000001 {
             numberFormatter.maximumFractionDigits = 9
@@ -32,4 +30,13 @@ extension Decimal {
         }
         return numberFormatter.string(from: self as NSDecimalNumber)
     }
+}
+
+extension Decimal {
+    static let numberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 1
+        return numberFormatter
+    }()
 }

@@ -9,9 +9,16 @@ import Foundation
 
 extension String {
     var decimalValue: Decimal? {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "en_US")
-        formatter.numberStyle = .decimal
-        return formatter.number(from: self)?.decimalValue
+        Self.numberFormatter.number(from: self)?.decimalValue
     }
 }
+
+extension String {
+    static let numberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = Locale(identifier: "en_US")
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter
+    }()
+}
+
