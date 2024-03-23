@@ -33,6 +33,8 @@
 		46ADB1572B20423C008C2EA5 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ADB1562B20423C008C2EA5 /* DataProvider.swift */; };
 		46ADB15C2B209449008C2EA5 /* CurrencyRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ADB15B2B209449008C2EA5 /* CurrencyRateModel.swift */; };
 		46ADB15F2B209567008C2EA5 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ADB15E2B209566008C2EA5 /* Errors.swift */; };
+		54FEA2F42BAEBC9A00DC62C3 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEA2F32BAEBC9A00DC62C3 /* URLSession.swift */; };
+		54FEA2F62BAEBCC000DC62C3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEA2F52BAEBCC000DC62C3 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		46ADB1562B20423C008C2EA5 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		46ADB15B2B209449008C2EA5 /* CurrencyRateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateModel.swift; sourceTree = "<group>"; };
 		46ADB15E2B209566008C2EA5 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		54FEA2F32BAEBC9A00DC62C3 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		54FEA2F52BAEBCC000DC62C3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +200,8 @@
 				46ADB1522B200B19008C2EA5 /* DataValidator.swift */,
 				46AC02F72B1E09AA00417AD4 /* ExchangeNetworkService.swift */,
 				46ADB14F2B1F3857008C2EA5 /* DataStoreService.swift */,
+				54FEA2F32BAEBC9A00DC62C3 /* URLSession.swift */,
+				54FEA2F52BAEBCC000DC62C3 /* NetworkService.swift */,
 			);
 			path = DataProviders;
 			sourceTree = "<group>";
@@ -304,6 +310,8 @@
 				46AC02C82B1E00B700417AD4 /* CurrencyRateView.swift in Sources */,
 				46ADB15F2B209567008C2EA5 /* Errors.swift in Sources */,
 				46ADB1532B200B19008C2EA5 /* DataValidator.swift in Sources */,
+				54FEA2F42BAEBC9A00DC62C3 /* URLSession.swift in Sources */,
+				54FEA2F62BAEBCC000DC62C3 /* NetworkService.swift in Sources */,
 				46ADB1502B1F3857008C2EA5 /* DataStoreService.swift in Sources */,
 				46ADB14A2B1F1E03008C2EA5 /* String+Extension.swift in Sources */,
 				46AC02F62B1E094700417AD4 /* ConverterViewModel.swift in Sources */,

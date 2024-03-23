@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MockExchangeService: ExchangeServiceProtocol {
+class MockExchangeService {
     
     enum MockServiceError: Error {
         case dataNotFound

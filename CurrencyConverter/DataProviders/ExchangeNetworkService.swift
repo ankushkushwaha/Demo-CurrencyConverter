@@ -7,16 +7,36 @@
 
 import Foundation
 
-protocol ExchangeServiceProtocol {
+protocol ExchangeServiceProtocol: NetworkServiceProtocol {
     func fetchExchangeRates(_for currencySymbol: String) async -> Result<ExchangeRateResponse, Error>
 }
 
-class ExchangeRateService: ExchangeServiceProtocol {
+struct ExchangeRateService: ExchangeServiceProtocol {
+    
+    let urlSession: URLSessionProtocol
+    
+    // Dependency Injection to mock urlSession for testing
+    init(_ urlSession: URLSessionProtocol = URLSession.shared) {
+        self.urlSession = urlSession
+    }
     
     func fetchExchangeRates(_for currencySymbol: String) async -> Result<ExchangeRateResponse, Error> {
         
-        let url = "\(Endpoints.exchangeRates)&base=\(currencySymbol)"
         
-        return await URLSession.shared.fetchData(url: url)
+        
+        guard let url = URL(string: "\(Endpoints.exchangeRates)&base=\(currencySymbol)") else {
+            return .failure(NetworkingError.invalidURL)
+        }
+        
+        do {
+            let (data, _) = try await get(url)
+            
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            let decodedData = try decoder.decode(ExchangeRateResponse.self, from: data)
+            return .success(decodedData)
+        } catch {
+            return .failure(error)
+        }
     }
 }
