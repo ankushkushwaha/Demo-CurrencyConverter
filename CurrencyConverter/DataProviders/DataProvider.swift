@@ -39,7 +39,7 @@ struct DataProvider: DataProviderProtocol {
             return data
         }
         
-        // In case API faliure,  show old data in UI
+        // In case API faliure, show old data in UI
         return localData
     }
     
