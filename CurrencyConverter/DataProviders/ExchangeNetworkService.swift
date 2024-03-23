@@ -30,7 +30,6 @@ struct ExchangeRateService: ExchangeServiceProtocol {
             let (data, _) = try await get(url)
             
             let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
             let decodedData = try decoder.decode(ExchangeRateResponse.self, from: data)
             return .success(decodedData)
         } catch {
