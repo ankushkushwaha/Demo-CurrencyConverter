@@ -12,9 +12,7 @@ import XCTest
 class EndpointsTests: XCTestCase {
 
     func testLatestExchangeRatesUrl() {
-        let endpoints = Endpoints()
-
-        let url = endpoints.latestExchangeRatesUrl
+        let url = Endpoints.exchangeRates
 
         XCTAssertEqual(url, "https://openexchangerates.org/api/latest.json?app_id=18d5f4c02d504e6eb7c837314c2ce730", "URL should match the expected value")
     }
