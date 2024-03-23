@@ -14,7 +14,7 @@ class ConverterViewModelTests: XCTestCase {
     
     func testFetchAndShowCurrenciesSuccess() async throws {
         
-        guard let data = try MockDataService().getMockAPIResponse() else {
+        guard let data = try MockTestModelProvider().getExchangeRates() else {
             XCTFail("Could not read data from MockExchangeRatesData.json")
             return
         }

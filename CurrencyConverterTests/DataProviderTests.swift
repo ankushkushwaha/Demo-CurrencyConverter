@@ -23,8 +23,9 @@ class DataProviderTests: XCTestCase {
         
         dataStore = DataStoreService(defaults: userDefaults)
         
+        let mockService = ExchangeRateService(MockTestURLSession())
         sut = DataProvider(dataStore: dataStore,
-                           exchangeService: MockExchangeService())
+                           exchangeService: mockService)
     }
     
     override func tearDownWithError() throws {
@@ -36,9 +37,6 @@ class DataProviderTests: XCTestCase {
     }
     
     func testGetExchangeRateDataSuccess() async {
-        let mockService = MockExchangeService()
-        mockService.shouldSucceed = true
-        
         let dataProvider = DataProvider(dataStore: dataStore,
                                         exchangeService: MockExchangeService())
         
@@ -50,8 +48,8 @@ class DataProviderTests: XCTestCase {
     
     func testGetExchangeRateDataFaliure() async {
         
-        let mockService = MockExchangeService()
-        mockService.shouldSucceed = false
+        var mockService = MockExchangeService()
+        mockService.error = MockExchangeService.Errors.mockDataNotAvailable
         
         let dataProvider = DataProvider(dataStore: dataStore,
                                         exchangeService: mockService)
@@ -63,29 +61,37 @@ class DataProviderTests: XCTestCase {
 }
 
 extension DataProviderTests {
-    class MockExchangeService: ExchangeServiceProtocol {
+    
+    struct MockExchangeService: ExchangeServiceProtocol {
         
-        var shouldSucceed = true
+        var urlSession: URLSessionProtocol = MockURLSessionPlaceholder()
         
-        enum MockServiceError: Error {
-            case dataNotFound
+        var error: Error?
+        
+        enum Errors: Error {
             case mockDataNotAvailable
         }
         
         func fetchExchangeRates(_for currencySymbol: String) async -> Result<ExchangeRateResponse, Error> {
             
-            if shouldSucceed {
-                do {
-                    guard let mockData = try MockDataService().getMockAPIResponse() else {
-                        return .failure(MockServiceError.mockDataNotAvailable)
-                    }
-                    return .success(mockData)
-                    
-                } catch {
-                    return .failure(MockServiceError.mockDataNotAvailable)
-                }
+            if let error = error {
+                return .failure(error)
             }
-            return .failure(MockServiceError.dataNotFound)
+            do {
+                guard let mockData = try MockTestModelProvider().getExchangeRates() else {
+                    return .failure(Errors.mockDataNotAvailable)
+                }
+                return .success(mockData)
+                
+            } catch {
+                return .failure(Errors.mockDataNotAvailable)
+            }
+        }
+    }
+    
+    struct MockURLSessionPlaceholder: URLSessionProtocol {
+        func data(_ url: URL) async throws -> (Data, URLResponse) {
+            fatalError("MockURLSessionPlaceHolder method should not be called")
         }
     }
 }
