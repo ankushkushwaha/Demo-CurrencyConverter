@@ -13,7 +13,7 @@ protocol DataStoreServiceProtocol {
     func getExchageRatesForCurrencySymbol(_ baseCurrencySymbol: String) -> ExchangeRateResponse?
 }
 
-class DataStoreService: DataStoreServiceProtocol {
+struct DataStoreService: DataStoreServiceProtocol {
     
     private let defaults: UserDefaults
     

@@ -12,7 +12,7 @@ protocol DataProviderProtocol {
 }
 
 
-class DataProvider: DataProviderProtocol {
+struct DataProvider: DataProviderProtocol {
     
     private let dataStore: DataStoreServiceProtocol
     private let exchangeService: ExchangeServiceProtocol

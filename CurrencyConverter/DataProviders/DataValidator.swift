@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataValidator {
+struct DataValidator {
     
     private let timeToExpireFethedData = 60 * 30 // 30 minutes
     
