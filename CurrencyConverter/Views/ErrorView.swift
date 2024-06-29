@@ -9,19 +9,27 @@ import SwiftUI
 
 struct ErrorView: View {
     let error: DataError
+    var tryAgainButtonAction: () -> Void
     
     var body: some View {
-        Text(error.errorMessage)
-            .alert(isPresented: .constant(true)) {
-                Alert(title: Text("Error"),
-                      message: Text(error.errorMessage),
-                      dismissButton: .default(Text("OK")))
+        VStack {
+            Text(error.errorMessage)
+                .padding()
+                .multilineTextAlignment(.center)
+            Button(action: {
+                tryAgainButtonAction()
+            }) {
+                Image(systemName: "arrow.clockwise")
+                    .font(.largeTitle)
             }
+            .padding()
+        }
     }
 }
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView(error: DataError.networkError)
+        ErrorView(error: DataError.networkError,
+                  tryAgainButtonAction: {})
     }
 }

@@ -12,7 +12,7 @@ enum DataError: Error {
     var errorMessage: String {
         switch self {
         case .networkError:
-            return "Could not fetch data. Please try again later."
+            return "Could not fetch data. Please check your internet connection and try again."
         }
     }
 }
