@@ -39,7 +39,7 @@ class ExchangeRateServiceTests: XCTestCase {
     func testFetchTransactionsFail() async throws {
         
         var mockSession = MockTestURLSession()
-        mockSession.error = MockError.dataError
+        mockSession.error = MockTestURLSession.DataError.mockDataError
         
         sut = ExchangeRateService(mockSession)
         
@@ -50,7 +50,42 @@ class ExchangeRateServiceTests: XCTestCase {
             XCTFail("ExchangeRateService Should not succeed.")
             
         case .failure(let err):
-            XCTAssertEqual(MockError.dataError, err as! MockError)
+            XCTAssertEqual(MockTestURLSession.DataError.mockDataError, err as! MockTestURLSession.DataError)
         }
+    }
+}
+
+
+struct MockTestURLSession: URLSessionProtocol {
+
+    enum DataError: Error {
+        case mockDataError
+    }
+
+    var error: Error?
+
+    func fetchData(url: URL) async throws -> (Data, URLResponse) {
+
+        if let error = error {
+            throw error
+        }
+
+        return try await mockFetchData(url: url)
+    }
+
+    private func mockFetchData(url: URL) async throws -> (Data, URLResponse) {
+
+        let fakeSuccessResponse = HTTPURLResponse(url: url,
+                                                  statusCode: 200,
+                                                  httpVersion: "HTTP/1.1",
+                                                  headerFields: nil)
+
+        let mockData = MockJsonData().getJsonData()
+
+        guard let mockData = mockData,
+              let response = fakeSuccessResponse else {
+            throw DataError.mockDataError
+        }
+        return (mockData, response)
     }
 }

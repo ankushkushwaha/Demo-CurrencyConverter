@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol ExchangeServiceProtocol: NetworkServiceProtocol {
-    func fetchExchangeRates(_for currencySymbol: String) async -> Result<ExchangeRateResponse, Error>
-}
-
-struct ExchangeRateService: ExchangeServiceProtocol {
+struct ExchangeRateService: ExchangeRateServiceProtocol {
     
     let urlSession: URLSessionProtocol
     
@@ -27,7 +23,7 @@ struct ExchangeRateService: ExchangeServiceProtocol {
         }
         
         do {
-            let (data, _) = try await get(url)
+            let (data, _) = try await urlSession.fetchData(url: url)
             
             let decoder = JSONDecoder()
             let decodedData = try decoder.decode(ExchangeRateResponse.self, from: data)
@@ -35,5 +31,20 @@ struct ExchangeRateService: ExchangeServiceProtocol {
         } catch {
             return .failure(error)
         }
+    }
+}
+
+
+protocol ExchangeRateServiceProtocol {
+    func fetchExchangeRates(_for currencySymbol: String) async -> Result<ExchangeRateResponse, Error>
+}
+
+protocol URLSessionProtocol {
+    func fetchData(url: URL) async throws -> (Data, URLResponse)
+}
+
+extension URLSession: URLSessionProtocol {
+    func fetchData(url: URL) async throws -> (Data, URLResponse) {
+        try await self.data(from: url)
     }
 }

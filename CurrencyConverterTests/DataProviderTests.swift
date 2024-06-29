@@ -62,7 +62,7 @@ class DataProviderTests: XCTestCase {
 
 extension DataProviderTests {
     
-    struct MockExchangeService: ExchangeServiceProtocol {
+    struct MockExchangeService: ExchangeRateServiceProtocol {
         
         var urlSession: URLSessionProtocol = MockURLSessionPlaceholder()
         
@@ -90,7 +90,7 @@ extension DataProviderTests {
     }
     
     struct MockURLSessionPlaceholder: URLSessionProtocol {
-        func data(_ url: URL) async throws -> (Data, URLResponse) {
+        func fetchData(url: URL) async throws -> (Data, URLResponse) {
             fatalError("MockURLSessionPlaceHolder method should not be called")
         }
     }

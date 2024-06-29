@@ -15,11 +15,11 @@ protocol DataProviderProtocol {
 struct DataProvider: DataProviderProtocol {
     
     private let dataStore: DataStoreServiceProtocol
-    private let exchangeService: ExchangeServiceProtocol
+    private let exchangeService: ExchangeRateServiceProtocol
     
     // Dependency Injection to mock data -> MockExchangeService()
     init(dataStore: DataStoreServiceProtocol = DataStoreService(),
-         exchangeService: ExchangeServiceProtocol = ExchangeRateService()) {
+         exchangeService: ExchangeRateServiceProtocol = ExchangeRateService()) {
         self.dataStore = dataStore
         self.exchangeService = exchangeService
     }

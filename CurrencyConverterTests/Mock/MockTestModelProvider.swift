@@ -15,7 +15,7 @@ struct MockTestModelProvider {
         if let jsonData = jsonData {
             data = jsonData
         } else {
-            data = MockTestJsonData().getJsonData()
+            data = MockJsonData().getJsonData()
         }
     }
     

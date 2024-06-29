@@ -1,5 +1,5 @@
 //
-//  MockTestJsonData.swift
+//  MockJsonData.swift
 //  CurrencyConverterTests
 //
 //  Created by Ankush Kushwaha on 23/03/24.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-class MockTestJsonData {
+class MockJsonData {
     
     func getJsonData() -> Data? {
-        // MockTestJsonData is declared as class to get test bundle, otherwise struct is enough
+        // MockJsonData is declared as class to get test bundle, otherwise struct is enough, as we dont need bundle from MockJsonData.self
         let bundle = Bundle(for: type(of: self))
         
         guard let fileURL = bundle.url(forResource: "MockExchangeRatesData", withExtension: "json") else {
