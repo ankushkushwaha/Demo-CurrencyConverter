@@ -17,19 +17,25 @@ struct CurrencyRateView: View {
                 ProgressView("Loading...")
                     .padding()
             } else if let error = viewModel.error {
-                ErrorView(error: error)
+                ErrorView(error: error, tryAgainButtonAction: {
+                    fetchData()
+                })
             } else {
                 textInputView
                 baseCurrencyPicker
                 gridView
             }
         }.onAppear {
-            Task {
-                await viewModel.fetchAndShowCurrencies()
-            }
+            fetchData()
         }.onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
             
             viewModel.calculateConversionRates()
+        }
+    }
+    
+    private func fetchData() {
+        Task {
+            await viewModel.fetchAndShowCurrencies()
         }
     }
     
